@@ -1,0 +1,105 @@
+main
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.shop-banner-content
+{
+    margin-top: 2rem;
+    width: 55%;
+    background-color: #685f58;
+    padding: 4rem;
+}
+
+.shop-banner-title
+{
+    margin-bottom: .5rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+}
+
+.shop-banner-description
+{
+    color: white;
+}
+
+.shop-content
+{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 61%;
+}
+
+.shop-settings
+{
+    width:25%;
+    height: inherit;
+    align-self:flex-start;
+}
+
+.category-title 
+{
+    text-transform: uppercase;
+}
+
+.category-line
+{
+    width: 90%;
+    height: 1px;
+    opacity: 0.1;
+    background-color: black;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+
+.category-item 
+{
+   margin-top: .5rem; 
+   margin-bottom: .5rem;
+}
+
+.shop-container
+{
+    width: 75%;
+    display: flex;
+    /* grid-template-columns: repeat(3, minmax(0, 1fr)); */
+    flex-wrap: wrap;
+    /* row-gap: 2rem;
+    column-gap: 2rem; */
+}
+
+.shop-item
+{
+    flex: 0 0 33.3333%;
+}
+
+.shop-item-image 
+{
+    height: 250px;
+    width: 250px;
+    background-color: #f6f6f6;
+}
+
+.shop-item-title
+{
+    width: 250px;
+    margin-top: 1rem;
+    font-weight: 700;
+}
+
+.shop-item-price
+{
+    width: 250px;
+    margin-top: .5rem;
+    margin-bottom: 2rem;
+}

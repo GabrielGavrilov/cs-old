@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login :: CloverShop</title>
+        <link rel="stylesheet" href="/css/login.css">
+    </head>
+    <body>
+        <%- include("partials/header.ejs") %>
+        <main>
+            <form class="login-form">
+                <p class="login-text">Admin Login</p>
+                <div class="email-input">
+                    <input class="login-input" type="text" name="email" placeholder="Admin email">
+                </div>
+                <div class="password-input">
+                    <input class="login-input" type="password" name="password" placeholder="Adming password">
+                </div>
+                <div class="light-line"></div>
+                <div class="button-input">
+                    <button class="login-button">Log In</button>
+                </div>
+            </form>
+        </main>
+    </body>
+</html>
