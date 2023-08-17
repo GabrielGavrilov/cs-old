@@ -12,18 +12,4 @@ router.get("/",
     }
 )
 
-router.get("/category/:categoryName", 
-    async function(req, res)
-    {
-        const name = req.params.categoryName
-        const category = await Category.findOne({"name": name})
-        const categories = await Category.find({})
-
-        return res.render("category.ejs", {
-            category: category,
-            categories: categories
-        })
-    }
-)
-
 module.exports = router

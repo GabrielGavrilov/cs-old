@@ -1,11 +1,12 @@
 const settings = require("./clovershop.json")
 const express = require("express")
 const mongoose = require("mongoose")
+const bodyParser = require("body-parser")
 const app = express()
 
 const staticRoutes = require("./routes/static.routes")
 const userRoutes = require("./routes/admin.routes")
-const bodyParser = require("body-parser")
+const categoryRoutes = require("./routes/category.routes")
 
 /**
  * MongoDB Connection
@@ -35,6 +36,7 @@ app.use(express.static(__dirname + "/public"))
  */
 
 app.use("/", staticRoutes)
+app.use("/category", categoryRoutes)
 app.use("/admin", userRoutes)
 
 /**
