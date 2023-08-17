@@ -7,8 +7,10 @@
     </head>
     <body>
         <%- include('../partials/menu.ejs') %>
-        <form method="post" action="/admin/products/new">
+        <form method="post" action="/admin/products/new" enctype="multipart/form-data">
             <p>Create a new product</p>
+
+            <input type="file" name="productPicture">
             <input type="text" name="productName" placeholder="Product Name"><br>
             <input type="text" name="productDescription" placeholder="Product Description"><br>
             <input type="number" name="productPrice" placeholder="Product Price"><br>

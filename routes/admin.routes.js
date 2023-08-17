@@ -7,6 +7,20 @@ const router = express.Router()
 const bodyParser = require("body-parser")
 const Category = require("../models/category.model")
 const Product = require("../models/product.model")
+const multer = require('multer')
+const fs = require("fs")
+const path = require("path")
+
+const fileStorage = multer.diskStorage({
+    destination: (req, file, cb)=> {
+        cb(null, "./public/images/")
+    },
+    filename: (req, file, cb)=> {
+        cb(null, Date.now() + " - " + file.originalname)
+    }
+})
+
+const fileUpload = multer({storage: fileStorage})
 
 /**
  * GET ROUTES
@@ -68,10 +82,10 @@ router.post("/categories/new",
     }
 )
 
-router.post("/products/new",
+router.post("/products/new", fileUpload.single("productPicture"),
     async function(req, res)
     {
-        const productPicture = "None"
+        const productPicture = req.file.filename
         const productName = req.body.productName
         const productDescription = req.body.productDescription
         const productPrice = req.body.productPrice
