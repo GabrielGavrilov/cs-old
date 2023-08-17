@@ -1,9 +1,9 @@
 const mongoose = require("mongoose")
 
 const shopSchema = new mongoose.Schema({
-    shopName: String,
-    shopDescription: String
+    name: String,
+    description: String
 })
 
-const shopModel = new mongoose.model("shop", shopSchema)
+const shopModel = new mongoose.model("categorie", shopSchema)
 module.exports = shopModel

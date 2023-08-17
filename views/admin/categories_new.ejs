@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create a new category - CloverShop</title>
+    </head>
+    <body>
+        <%- include('../partials/menu.ejs') %>
+        <form method="post" action="/admin/categories/new">
+            <p>Create a new category</p>
+            <input type="text" name="categoryName" placeholder="Category Name"><br>
+            <input type="text" name="categoryDescription" placeholder="Category Description"><br><br>
+            <button type="submit">Create new category</button>
+        </form>
+    </body>
+</html>

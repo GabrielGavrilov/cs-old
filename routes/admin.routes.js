@@ -1,34 +1,59 @@
+/**
+ * Administrator routes
+ */
+
 const express = require("express")
 const router = express.Router()
-const Shop = require("../models/shop.model")
+const bodyParser = require("body-parser")
+const Category = require("../models/category.model")
 
-router.get("/login", (req, res)=> {
-    res.render("login.ejs")
-})
+/**
+ * GET ROUTES
+ */
 
-router.get("/create/shop/:shopName/:shopDescription", (req, res)=> {
-    const name = req.params.shopName
-    const description = req.params.shopDescription
+router.get("/login", function(req, res) { res.render("admin/login.ejs") })
+router.get("/dashboard", function(req, res) { res.render("admin/dashboard.ejs") })
+router.get("/categories", function(req, res) { res.render("admin/categories.ejs") })
+router.get("/products", function(req, res) { res.render("admin/products.ejs") })
+router.get("/categories/new", function(req, res) { res.render("admin/categories_new.ejs") })
+router.get("/products/new", function(req, res) { res.render("admin/products_new.ejs")})
 
-    const newShop = new Shop({
-        shopName: name,
-        shopDescription: description
-    })
+/**
+ * POST ROUTES
+ */
 
-    newShop.save()
-    .then(()=> {
-        console.log(`[CloverShop]: ${name} has been created`)
-    })
-    .catch((err)=> {
-        console.log(`[CloverShop]: There has been an issue creating the shop`)
-        console.log(err)
-    })
+router.post("/categories/new", 
+async function(req, res) 
+{
+    const categoryName = req.body.categoryName
+    const categoryDescription = req.body.categoryDescription
+    const category = await Category.findOne({'name': categoryName})
 
-    res.redirect("/")
-})
+    if(category)
+    {
+        console.log("Category name taken!")
+        res.redirect("/admin/categories/new")
+    }
 
-router.get("/dashboard", (req, res)=> {
-    res.render("dashboard.ejs")
+    else
+    {
+        const newCategory = new Category({
+            name: categoryName,
+            description: categoryDescription
+        })
+
+        await newCategory.save()
+        .then(()=>
+        {
+            console.log(`${categoryName} has been created.`)
+            res.redirect("/admin/categories/new")
+        })
+        .catch((err)=>
+        {
+            console.log(err)
+            res.redirect("/admin/categories/new")
+        })
+    }
 })
 
 module.exports = router

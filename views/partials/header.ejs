@@ -14,9 +14,9 @@
         </div>
         <div class="header-middle">
             <ul class="header-navbar">
-                <% if(shops.length > 0) { %>
-                <% shops.forEach((shop)=> { %>
-                    <li class="navbar-item"><a class="navbar-link" href="/category/<%= shop.shopName %>"><%= shop.shopName %></a></li>
+                <% if(categories.length > 0) { %>
+                <% categories.forEach((category)=> { %>
+                    <li class="navbar-item"><a class="navbar-link" href="/category/<%= category.name %>"><%= category.name %></a></li>
                 <% }) %>
                 <% } %>
             </ul>

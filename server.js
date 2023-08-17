@@ -5,6 +5,7 @@ const app = express()
 
 const staticRoutes = require("./routes/static.routes")
 const userRoutes = require("./routes/admin.routes")
+const bodyParser = require("body-parser")
 
 /**
  * MongoDB Connection
@@ -25,6 +26,8 @@ mongoose.connect(settings.DATABASE_URI)
  */
 
 app.set("view engine", "ejs")
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json())
 app.use(express.static(__dirname + "/public"))
 
 /**
