@@ -10,10 +10,11 @@
         <form method="post" action="/admin/products/new" enctype="multipart/form-data">
             <p>Create a new product</p>
 
-            <input type="file" name="productPicture">
-            <input type="text" name="productName" placeholder="Product Name"><br>
-            <input type="text" name="productDescription" placeholder="Product Description"><br>
-            <input type="number" name="productPrice" placeholder="Product Price"><br>
+            <input type="file" name="productPicture"><br>
+            <input type="text" name="productName" placeholder="Name"><br>
+            <input type="text" name="productDescription" placeholder="Description"><br>
+            <input type="number" name="productPrice" placeholder="Price"><br>
+            <input type="number" name="productQuantity" placeholder="Quantity"><br>
 
             <% if(categories.length > 0) { %>
                 <br><label for="categoryName">Category: </label>
@@ -21,8 +22,10 @@
                 <% categories.forEach((category)=> { %>
                     <option value="<%= category.name %>"><%= category.name %></option>    
                 <% }) %>
-                </select><br><br>
+                </select><br>
             <% } %>
+
+            <input type="text" name="productSubcategory" placeholder="Subcategory"><br><br>
 
             <button type="submit">Create new product</button>
         </form>

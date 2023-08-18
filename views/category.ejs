@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><%= category.name %> - CloverShop</title>
-        <link rel="stylesheet" href="/css/shop.css">
+        <link rel="stylesheet" href="/css/category.css">
     </head>
     <body>
         <%- include("partials/header.ejs") %>
@@ -18,25 +18,39 @@
                 </div>
             </div>
             <div class="shop-content">
-                <!-- <div class="shop-settings">
+                <div class="shop-settings">
                     <div>
-                        <p class="category-title">Category</p>
+                        <p class="category-title">Subcategories</p>
                         <div class="category-line"></div>
-                        <input type="checkbox" class="category-item" name="test" value="test">
-                        <label for="test">Test</label>
-                        <br>
+                        <% if(subcategories.length > 0) { %>
+                            <form method="post" action="/category/<%= category.name %>/subcategory">
+                                <% subcategories.forEach((subcategory)=> { %>
+                                    <input type="checkbox" class="category-item" name="subcategoryName" value="<%= subcategory.name %>">
+                                    <label for="<%= subcategory.name %>"><%= subcategory.name %></label>
+                                    <br>
+                                <% }) %>
+                                <div class="category-line"></div>
+                                <div class="category-submit-button">
+                                    <button class="submit-button" type="submit">Refresh</button>
+                                </div>
+                            </form>
+                        <% } %>
                     </div>
 
-                </div> -->
+                </div>
                 <div class="shop-container">
                     <% if(products.length > 0) { %>
                         <% products.forEach((product)=> { %>
                             <div class="shop-item">
                                 <div class="shop-item-image">
-                                    <img width="100%" src="/images/<%= product.picture %>">
+                                    <a href="/category/<%= product.categoryName %>/product/<%= product._id %>">
+                                        <img width="100%" src="/images/<%= product.picture %>">
+                                    </a>
                                 </div>
                                 <div class="shop-item-title">
-                                    <p><%= product.name %></p>
+                                    <a href="/category/<%= product.categoryName %>/product/<%= product._id %>">
+                                        <p><%= product.name %></p>
+                                    </a>
                                 </div>
                                 <div class="shop-item-price">
                                     <% const productPrice = String(product.price) %>

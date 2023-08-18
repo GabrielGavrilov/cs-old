@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Product - CloverShop</title>
+        <link rel="stylesheet" href="/css/product.css">
+    </head>
+    <body>
+        <%- include("partials/header.ejs") %>
+        <main>
+            <div class="product-content">
+                <div class="product-image">
+                    <img src="/images/<%= product.picture %>">
+                </div>
+                <div class="product-information">
+                    <div class="product-name">
+                        <p><%= product.name %></p>
+                    </div>
+                    <div class="product-price">
+                        <p><%= product.price %></p>
+                    </div>
+                    <div class="product-stock">
+                        <p>Stock: <%= product.quantity %></p>
+                    </div>
+                    <form>
+                        <div class="quantity-input">
+                            <input type="number" name="quantity" class="product-quantity" value="1">
+                        </div>
+                        <div class="add-to-cart-button">
+                            <button class="product-button">Add to cart</button>
+                        </div>
+                    </form>
+                    <div class="product-description">
+                        <p><%= product.description %></p>
+                    </div>
+                </div>
+            </div>
+            
+        </main>
+    </body>
+</html>

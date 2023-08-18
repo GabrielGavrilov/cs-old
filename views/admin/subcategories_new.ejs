@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create a new category - CloverShop</title>
+    </head>
+    <body>
+        <%- include('../partials/menu.ejs') %>
+        <form method="post" action="/admin/subcategories/new">
+            <p>Create a new category</p>
+            <input type="text" name="subcategoryName" placeholder="Name"><br>
+
+            <% if(categories.length > 0) { %>
+                <br><label for="categoryName">Category: </label>
+                <select name="categoryName">
+                <% categories.forEach((category)=> { %>
+                    <option value="<%= category.name %>"><%= category.name %></option>    
+                <% }) %>
+                </select><br><br>
+            <% } %>
+            
+            <button type="submit">Create new category</button>
+        </form>
+    </body>
+</html>
