@@ -13,12 +13,19 @@ router.get("/:categoryName",
         const subcategories = await Subcategory.find({'categoryName': name})
         const products = await Product.find({"categoryName": name})
 
-        return res.render("category.ejs", {
-            categories: categories,
-            category: category,
-            subcategories: subcategories,
-            products: products
-        })
+        if(category)
+        {
+            return res.render("category.ejs", {
+                categories: categories,
+                category: category,
+                subcategories: subcategories,
+                products: products
+            })
+        }
+        else
+        {
+            return res.redirect("/")
+        }
     }
 )
 
@@ -31,27 +38,39 @@ router.post("/:categoryName/subcategory/",
         const subcategories = await Subcategory.find({'categoryName': name})
         const products = await Product.find({"categoryName": name, "subcategoryName": req.body.subcategoryName})
 
-        return res.render("category.ejs", {
-            categories: categories,
-            category: category,
-            subcategories: subcategories,
-            products: products
-        })
+        if(category)
+        {
+            return res.render("category.ejs", {
+                categories: categories,
+                category: category,
+                subcategories: subcategories,
+                products: products
+            })
+        }
+        else
+        {
+            return res.redirect("/")
+        }
     }
 )
 
 router.get("/:categoryName/product/:productId",
     async function(req, res)
     {
-        const id = req.params.productId
-        const product = await Product.findById(id)
+        const product = await Product.findOne({"id": req.params.id, "categoryName": req.params.categoryName})
         const categories = await Category.find({})
 
-        return res.render("product.ejs",
+        if(product)
         {
-            categories: categories,
-            product: product
-        })
+            return res.render("product.ejs", {
+                categories: categories,
+                product: product
+            })
+        }
+        else
+        {
+            return res.redirect("/")
+        }
     }
 )
 
