@@ -9,33 +9,43 @@
     <body>
         <%- include('partials/header.ejs') %>
         <main>
+            
             <div class="cart-content">
                 <div class="cart-items">
                     <div class="products-header">PRODUCTS</div>
                     <div class="light-line"></div>
-                    <div class="cart-product">
-                        <img class="cart-product-image" src="/images/placeholder.PNG">
-                        <div class="cart-product-information">
-                            <p class="cart-product-title">Placeholder</p>
-                            <p class="cart-product-quantity">Quantity: 1</p>
-                            <p class="cart-product-price">Price: $1.00</p>
-                            <p class="cart-product-remove">Remove</p>
+                    <% if(items.length > 0) { %>
+                        <% items.forEach((item)=> { %>
+                            <div class="cart-product">
+                                <img class="cart-product-image" src="/images/<%= item.product.picture %>">
+                                <div class="cart-product-information">
+                                    <p class="cart-product-title"><%= item.product.name %></p>
+                                    <p class="cart-product-quantity">Qty: <%= item.quantity %></p>
+                                    <p class="cart-product-price">
+                                        <% const productPrice = String(item.product.price) %>
+                                        <% const formatedPrice = productPrice.substring(0, productPrice.length - 2) + "." + productPrice.substring(productPrice.length - 2) %>
+                                        $<%= formatedPrice %>
+                                    </p>
+                                     <!-- <p class="cart-product-remove">Remove</p> -->
+                                </div>
+                            </div>
+                        <% }) %>
+                    <% } %>
+                    <div class="light-line"></div>
+                    <div class="cart-summary">
+                        <div class="cart-total">
+                            <% const subtotalPrice = String(cartSubtotal) %>
+                            <% const formatedSubtotalPrice = subtotalPrice.substring(0, subtotalPrice.length - 2) + "." + subtotalPrice.substring(subtotalPrice.length - 2) %>
+                            <p>Subtotal: $<%= formatedSubtotalPrice %></p> 
+                        </div>
+                        <div class="reset-cart">
+                            <p>Reset cart</p>
                         </div>
                     </div>
-                    <div class="cart-product">
-                        <img class="cart-product-image" src="/images/placeholder.PNG">
-                        <div class="cart-product-information">
-                            <p class="cart-product-title">Placeholder</p>
-                            <p class="cart-product-quantity">Quantity: 1</p>
-                            <p class="cart-product-price">Price: $1.00</p>
-                            <p class="cart-product-remove">Remove</p>
-                        </div>
-                    </div><br>
-                    <div class="light-line"></div>
                 </div>
                 <div class="cart-checkout">
-                    <p>CHECKOUT</p>
-                    
+                    <p class="checkout-header">CHECKOUT</p>
+                    <div class="light-line"></div>
                 </div>
             </div>
         </main>

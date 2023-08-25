@@ -12,9 +12,13 @@ main
 .shop-banner-content
 {
     margin-top: 2rem;
-    width: 55%;
+    width: 70%;
     background-color: #685f58;
-    padding: 4rem;
+}
+
+.shop-banner-text 
+{
+    margin: 4rem;
 }
 
 .shop-banner-title
@@ -37,7 +41,7 @@ main
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 61%;
+    width: 70%;
 }
 
 .shop-settings
@@ -97,7 +101,10 @@ main
 
 .shop-item
 {
-    flex: 0 0 33.3333%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex: 33%;
 }
 
 .shop-item-image 
@@ -125,4 +132,43 @@ main
     width: 250px;
     margin-top: .5rem;
     margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 1370px) {
+    
+    .shop-item
+    {
+        flex: 50%;
+    }
+    
+}
+
+@media screen and (max-width: 1120px) {
+
+    .shop-settings 
+    {
+        display: none;
+    }
+
+    .shop-container
+    {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .shop-item 
+    {
+        flex: 33%;
+        align-items: center;
+    }
+
+}
+
+@media screen and (max-width: 1020px) {
+
+    .shop-item 
+    {
+        flex: 50%;
+    }
+
 }
