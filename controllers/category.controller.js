@@ -47,7 +47,7 @@ async function subcategoryPageHandler(req, res) {
 }
 
 async function productPageHandler(req, res) {
-    const product = await Product.findOne({"id": req.params.id, "categoryName": req.params.categoryName})
+    const product = await Product.findOne({"_id": req.params.productId, "categoryName": req.params.categoryName})
     const categories = await Category.find({})
 
     if(product) {
@@ -58,6 +58,7 @@ async function productPageHandler(req, res) {
     }
         
     else {
+        console.log(`Cannot find: ${req.params.id} in ${req.params.categoryName}`)
         return res.redirect("/")
     }
 }

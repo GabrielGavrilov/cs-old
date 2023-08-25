@@ -18,12 +18,14 @@
                         <p><%= product.name %></p>
                     </div>
                     <div class="product-price">
-                        <p><%= product.price %></p>
+                        <% const productPrice = String(product.price) %>
+                        <% const formatedPrice = productPrice.substring(0, productPrice.length - 2) + "." + productPrice.substring(productPrice.length - 2) %>
+                        <p>$<%= formatedPrice %></p>
                     </div>
                     <div class="product-stock">
                         <p>Stock: <%= product.quantity %></p>
                     </div>
-                    <form>
+                    <form method="POST" action="/session/add/<%= product._id %>/<%= product.price %>">
                         <div class="quantity-input">
                             <input type="number" name="quantity" class="product-quantity" value="1">
                         </div>

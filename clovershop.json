@@ -1,4 +1,5 @@
 {
+    "SECRET_KEY": "A very secret key",
     "DATABASE_URI": "",
     "PORT": 3000
 }

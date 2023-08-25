@@ -25,11 +25,11 @@ async function productPageHandler(req, res) {
 }
 
 async function subcategoriesPageHandler(req, res) {
-    res.render("admin/subcategories")
+    res.render("admin/subcategories.ejs")
 }
 
 function newCategoryPageHandler(req, res) {
-    res.render("admin/categories/new")
+    res.render("admin/categories_new.ejs")
 }
 
 async function newProductPageHandler(req, res) {
@@ -58,7 +58,7 @@ async function newCategoryHandler(req, res) {
         await newCategory.save()
         .then(()=> 
         {
-            console.log(`${categoryName} has been created.`)
+            console.log(`${req.bopdy.categoryName} has been created.`)
             return res.redirect("/admin/categories")
         })
         .catch((err)=> 
