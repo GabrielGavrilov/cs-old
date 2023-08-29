@@ -1,5 +1,5 @@
 {
     "SECRET_KEY": "A very secret key",
-    "DATABASE_URI": "",
+    "DATABASE_URI": "mongodb+srv://gabriel:winter22@testing.k83qbvk.mongodb.net/?retryWrites=true&w=majority",
     "PORT": 3000
 }

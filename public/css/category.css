@@ -134,20 +134,30 @@ main
     margin-bottom: 2rem;
 }
 
-@media screen and (max-width: 1370px) {
+/* @media screen and (max-width: 1370px) {
     
     .shop-item
     {
         flex: 50%;
     }
     
-}
+} */
 
-@media screen and (max-width: 1120px) {
+@media screen and (max-width: 1230px) {
 
-    .shop-settings 
+    /* .shop-settings 
     {
         display: none;
+    } */
+
+    .shop-banner-content
+    {
+        width: 90%;
+    }
+
+    .shop-content
+    {
+        width: 90%;
     }
 
     .shop-container
@@ -171,4 +181,18 @@ main
         flex: 50%;
     }
 
+}
+
+@media screen and (max-width: 780px) {
+    .shop-settings
+    {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .shop-banner-text
+    {
+        margin: 2rem;
+    }
 }
