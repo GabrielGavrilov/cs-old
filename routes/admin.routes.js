@@ -12,7 +12,7 @@ const controller = require("../controllers/admin.controller")
 const fileStorage = multer.diskStorage({
     destination: (req, file, cb)=>
     {
-        cb(null, "./public/images/")
+        cb(null, "./public/uploads/")
     },
     filename: (req, file, cb)=> 
     {
