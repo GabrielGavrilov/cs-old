@@ -3,10 +3,13 @@ const router = express.Router()
 const Category = require("../models/category.model")
 const Product = require("../models/product.model")
 
+/**
+ * GET routes
+ */
 router.get("/", async function (req, res) {
     const categories = await Category.find({})
     
-    return res.render("home.ejs", {
+    return res.render("Home.ejs", {
         categories: categories
     })
 })
@@ -30,7 +33,7 @@ router.get("/cart", async function (req, res) {
         items.push(shoppingCartItem)
     }
 
-    return res.render("cart.ejs", {
+    return res.render("Cart.ejs", {
         categories: categories,
         items: items,
         cartSubtotal: cartSubtotal

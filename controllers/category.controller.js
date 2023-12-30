@@ -12,7 +12,7 @@ async function categoryPageHandler(req, res) {
     const products = await Product.find({"categoryName": name})
 
     if(category) {
-        return res.render("category.ejs", {
+        return res.render("Category.ejs", {
             categories: categories,
             category: category,
             subcategories: subcategories,
@@ -33,7 +33,7 @@ async function subcategoryPageHandler(req, res) {
     const products = await Product.find({"categoryName": name, "subcategoryName": req.body.subcategoryName})
 
     if(category) {
-        return res.render("category.ejs", {
+        return res.render("Category.ejs", {
             categories: categories,
             category: category,
             subcategories: subcategories,
@@ -51,7 +51,7 @@ async function productPageHandler(req, res) {
     const categories = await Category.find({})
 
     if(product) {
-        return res.render("product.ejs", {
+        return res.render("Product.ejs", {
             categories: categories,
             product: product
         })

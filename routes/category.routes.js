@@ -9,7 +9,11 @@ const controller = require("../controllers/category.controller")
  * GET routes
  */
 router.get("/:categoryName", controller.categoryPageHandler)
-router.post("/:categoryName/subcategory/", controller.subcategoryPageHandler)
 router.get("/:categoryName/product/:productId", controller.productPageHandler)
+
+/**
+ * POST routes
+ */
+router.post("/:categoryName/subcategory/", controller.subcategoryPageHandler)
 
 module.exports = router

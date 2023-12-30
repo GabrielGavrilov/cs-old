@@ -9,39 +9,39 @@ const fs = require("fs")
 const path = require("path")
 
 function loginPageHandler(req, res) {
-    res.render("admin/login.ejs")
+    res.render("admin_pages/Login.ejs")
 }
 
 async function dashboardPageHandler(req, res) {
-    res.render("admin/dashboard.ejs")
+    res.render("admin_pages/Dashboard.ejs")
 }
 
 async function categoriesPageHandler(req, res) {
-    res.render("admin/categories.ejs")
+    res.render("admin_pages/Categories.ejs")
 }
 
 async function productPageHandler(req, res) {
-    res.render("admin/products.ejs")
+    res.render("admin_pages/Products.ejs")
 }
 
 async function subcategoriesPageHandler(req, res) {
-    res.render("admin/subcategories.ejs")
+    res.render("admin_pages/Subcategories.ejs")
 }
 
 function newCategoryPageHandler(req, res) {
-    res.render("admin/categories_new.ejs")
+    res.render("admin_pages/CategoriesNew.ejs")
 }
 
 async function newProductPageHandler(req, res) {
     const categories = await Category.find({})
-    return res.render("admin/products_new.ejs", {
+    return res.render("admin_pages/ProductsNew.ejs", {
         categories: categories
     })
 }
 
 async function newSubcategoryPageHandler(req, res) {
     const categories = await Category.find({})
-    return res.render("admin/subcategories_new.ejs", {
+    return res.render("admin_pages/SubcategoriesNew.ejs", {
         categories: categories
     })
 }
