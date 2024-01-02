@@ -37,6 +37,12 @@ async function addProductToCart(req, res) {
     }
 }
 
+function resetCart(req, res) {
+    req.session.cart = []
+    return res.redirect("/cart")
+}
+
 module.exports = {
-    addProductToCart
+    addProductToCart,
+    resetCart
 }

@@ -17,7 +17,7 @@
                     <% if(items.length > 0) { %>
                         <% items.forEach((item)=> { %>
                             <div class="cart-product">
-                                <img class="cart-product-image" src="/images/<%= item.product.picture %>">
+                                <img class="cart-product-image" src="/uploads/<%= item.product.picture %>">
                                 <div class="cart-product-information">
                                     <p class="cart-product-title"><%= item.product.name %></p>
                                     <p class="cart-product-quantity">Qty: <%= item.quantity %></p>
@@ -39,7 +39,7 @@
                             <p>Subtotal: $<%= formatedSubtotalPrice %></p> 
                         </div>
                         <div class="reset-cart">
-                            <p>Reset cart</p>
+                            <a href="/session/reset" class="navbar-link"><p>Reset cart</p></a>
                         </div>
                     </div>
                 </div>
